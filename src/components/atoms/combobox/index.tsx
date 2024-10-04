@@ -9,9 +9,16 @@ import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import { useState } from "react";
 
-export default function ComboboxTp({ people = [] }) {
+interface PersonType {
+  id: number;
+  name: string;
+}
+
+export type PeopleType = PersonType[];
+
+export default function ComboboxTp({ people = [] }: { people: PeopleType }) {
   const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState(people[1]);
+  const [selected, setSelected] = useState<PersonType>(people[0]);
 
   const filteredPeople =
     query === ""
@@ -24,7 +31,7 @@ export default function ComboboxTp({ people = [] }) {
     <div className='mx-auto h-screen w-52 pt-20'>
       <Combobox
         value={selected}
-        onChange={(value) => setSelected(value)}
+        onChange={(value: PersonType) => setSelected(value)}
         onClose={() => setQuery("")}
       >
         <div className='relative'>
@@ -33,7 +40,7 @@ export default function ComboboxTp({ people = [] }) {
               "w-full rounded-lg border-none bg-white/5 py-1.5 pr-8 pl-3 text-sm/6 text-white",
               "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25"
             )}
-            displayValue={(person) => person?.name}
+            displayValue={(person: PersonType) => person?.name}
             onChange={(event) => setQuery(event.target.value)}
           />
           <ComboboxButton className='group absolute inset-y-0 right-0 px-2.5'>
@@ -49,7 +56,7 @@ export default function ComboboxTp({ people = [] }) {
             "transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0"
           )}
         >
-          {filteredPeople.map((person) => (
+          {filteredPeople.map((person: PersonType) => (
             <ComboboxOption
               key={person.id}
               value={person}
