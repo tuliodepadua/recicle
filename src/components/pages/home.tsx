@@ -4,12 +4,13 @@ import materials, { MaterialType } from "../../data/materials";
 import items, { itemType } from "../../data/items";
 import { MaterialContext } from "../../contexts";
 import { Input, Field, Label, Description } from "@headlessui/react";
+import { calcAllItems } from "../../data/calcs";
 import clsx from "clsx";
 
 export default function Home() {
   const [materialStateContext, setMaterialStateContext] =
     useState<MaterialType | null>(null);
-  console.log(materialStateContext);
+
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
 
   const getMaterialSelected = (itemSelected: ItemType) => {
@@ -37,8 +38,8 @@ export default function Home() {
         </div>
       </header>
       <main>
-        <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 h-full'>
-          <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8  text-white'>
+        <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 h-full flex'>
+          <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8  text-white flex-grow'>
             <div className='flex'>
               <div className='flex-grow'>Produto</div>
               <div className='flex-grow-0 text-left'>Quantidade</div>
@@ -68,12 +69,30 @@ export default function Home() {
                 </div>
               );
             })}
-
+          </div>
+          <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8  text-white flex-grow'>
+            <div className='flex'>
+              <div className='flex-grow'>Impacto</div>
+            </div>
             <hr className='mt-5 mb-5' />
 
             <div className='flex'>
               <div className='flex-grow'>Peso total</div>
-              <div className='flex-grow-0 text-left'> </div>
+              <div className='flex-grow-0 text-left'>
+                {calcAllItems(quantities)}
+              </div>
+            </div>
+            <div className='flex'>
+              <div className='flex-grow'>Gasto energético para criação</div>
+              <div className='flex-grow-0 text-left'>
+                {calcAllItems(quantities)}
+              </div>
+            </div>
+            <div className='flex'>
+              <div className='flex-grow'>Economia energética da reciclagem</div>
+              <div className='flex-grow-0 text-left'>
+                {calcAllItems(quantities)}
+              </div>
             </div>
           </div>
         </div>
