@@ -1,4 +1,14 @@
-const plasticType = [
+export interface MaterialType {
+  id: number;
+  name: string;
+  cost_creation: string;
+  time: string;
+  recycling_saving: string;
+} 
+
+type MaterialsType = MaterialType[];
+
+const materials: MaterialsType = [
   {
     id: 1,
     name: "Polietileno de baixa densidade (LDPE)",
@@ -43,4 +53,4 @@ const plasticType = [
   },
 ];
 
-export default plasticType;
+export default materials;
