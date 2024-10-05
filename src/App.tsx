@@ -80,7 +80,7 @@ function App() {
           </Disclosure>
 
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/recicle/' element={<Home />} />
           </Routes>
         </div>
       </>

@@ -1,9 +1,6 @@
 import { useState } from "react";
-import ComboboxTp, { ItemType } from "../atoms/ComboboxTp";
-import materials, { MaterialType } from "../../data/materials";
-import items, { itemType } from "../../data/items";
-import { MaterialContext } from "../../contexts";
-import { Input, Field, Label, Description } from "@headlessui/react";
+import items from "../../data/items";
+import { Input, Field } from "@headlessui/react";
 import {
   calcAllItems,
   calcImpactOfRecycling,
@@ -13,34 +10,27 @@ import itemsUsingEnergy from "../../data/energyUsage";
 import clsx from "clsx";
 
 export default function Home() {
-  const [materialStateContext, setMaterialStateContext] =
-    useState<MaterialType | null>(null);
-
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
 
-  const getMaterialSelected = (itemSelected: ItemType) => {
-    const { id } = itemSelected;
-    const materialSelected = materials.find((item) => item.id === id) || null;
-    setMaterialStateContext(materialSelected);
-  };
-
   const quantityChange = (id: number, value: string) => {
-    const newValue = parseInt(value) || 0;
-    setQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [id]: newValue,
-    }));
+    const numberValue = parseInt(value);
+    if (!isNaN(numberValue)) {
+      const newValue = numberValue >= 0 ? numberValue : 0;
+      setQuantities((prevQuantities) => ({
+        ...prevQuantities,
+        [id]: newValue,
+      }));
+    }
   };
   const { costSave, kwhSafe } = calcImpactOfRecycling(quantities);
 
   return (
-    <MaterialContext.Provider value={materialStateContext}>
+    <>
       <header className='bg-slate-600 shadow'>
         <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8'>
           <h1 className='text-3xl font-bold tracking-tight text-white'>
             Calculadora
           </h1>
-          {materialStateContext && materialStateContext.id}
         </div>
       </header>
       <main>
@@ -129,6 +119,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-    </MaterialContext.Provider>
+    </>
   );
 }
