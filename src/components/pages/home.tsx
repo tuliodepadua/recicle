@@ -4,7 +4,12 @@ import materials, { MaterialType } from "../../data/materials";
 import items, { itemType } from "../../data/items";
 import { MaterialContext } from "../../contexts";
 import { Input, Field, Label, Description } from "@headlessui/react";
-import { calcAllItems } from "../../data/calcs";
+import {
+  calcAllItems,
+  calcImpactOfRecycling,
+  calcTimeActive,
+} from "../../data/calcs";
+import itemsUsingEnergy from "../../data/energyUsage";
 import clsx from "clsx";
 
 export default function Home() {
@@ -26,20 +31,21 @@ export default function Home() {
       [id]: newValue,
     }));
   };
+  const { costSave, kwhSafe } = calcImpactOfRecycling(quantities);
 
   return (
     <MaterialContext.Provider value={materialStateContext}>
       <header className='bg-slate-600 shadow'>
         <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8'>
-          <h1 className='text-3xl font-bold tracking-tight text-gray-900'>
+          <h1 className='text-3xl font-bold tracking-tight text-white'>
             Calculadora
           </h1>
           {materialStateContext && materialStateContext.id}
         </div>
       </header>
       <main>
-        <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 h-full flex'>
-          <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8  text-white flex-grow'>
+        <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 h-full grid grid-cols-2 gap-4'>
+          <div className='  text-white '>
             <div className='flex'>
               <div className='flex-grow'>Produto</div>
               <div className='flex-grow-0 text-left'>Quantidade</div>
@@ -70,7 +76,7 @@ export default function Home() {
               );
             })}
           </div>
-          <div className='mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8  text-white flex-grow'>
+          <div className='  text-white '>
             <div className='flex'>
               <div className='flex-grow'>Impacto</div>
             </div>
@@ -79,19 +85,45 @@ export default function Home() {
             <div className='flex'>
               <div className='flex-grow'>Peso total</div>
               <div className='flex-grow-0 text-left'>
-                {calcAllItems(quantities)}
+                {calcAllItems(quantities).toFixed(4)} Kg
               </div>
             </div>
             <div className='flex'>
-              <div className='flex-grow'>Gasto energético para criação</div>
+              <div className='flex-grow'>Economia ao reciclar</div>
               <div className='flex-grow-0 text-left'>
-                {calcAllItems(quantities)}
+                R$ {costSave.toFixed(2)}
               </div>
             </div>
             <div className='flex'>
-              <div className='flex-grow'>Economia energética da reciclagem</div>
+              <div className='flex-grow'>Economia na reciclagem</div>
               <div className='flex-grow-0 text-left'>
-                {calcAllItems(quantities)}
+                {kwhSafe.toFixed(4)} KHw/h
+              </div>
+            </div>
+            <hr className='mt-5 mb-5' />
+
+            <div className='grid grid-cols-1 gap-1'>
+              <div>Impacto</div>
+              <div className='pt-3 grid grid-cols-2 gap-2'>
+                {itemsUsingEnergy.map((item) => {
+                  const timeActive = calcTimeActive(
+                    kwhSafe,
+                    item.consumo_por_hora
+                  );
+                  if (timeActive) {
+                    return (
+                      <div className='border-cyan-200 border-solid border rounded-lg p-2 min-h-36'>
+                        <h2 className='font-bold'>{item.name}</h2>
+                        <p className='text-sm'>
+                          Tempo de funcionamento: <b>{timeActive}</b>.
+                        </p>
+                        <p className='text-sm pb-1 text-gray-300'>
+                          {item.description}
+                        </p>
+                      </div>
+                    );
+                  }
+                })}
               </div>
             </div>
           </div>

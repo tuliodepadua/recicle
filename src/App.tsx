@@ -30,8 +30,8 @@ function App() {
                   <div className='flex-shrink-0'>
                     <img
                       alt='Your Company'
-                      src='https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500'
-                      className='h-8 w-8'
+                      src='http://ava.ufrpe.br/logo_ufrpe.png'
+                      className='h-12'
                     />
                   </div>
                   <div className='hidden md:block'>
