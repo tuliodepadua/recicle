@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/recicle/static/css/main.add98a6e.css",
+    "main.js": "/recicle/static/js/main.3dd41d08.js",
+    "static/js/453.a62953dd.chunk.js": "/recicle/static/js/453.a62953dd.chunk.js",
+    "index.html": "/recicle/index.html",
+    "main.add98a6e.css.map": "/recicle/static/css/main.add98a6e.css.map",
+    "main.3dd41d08.js.map": "/recicle/static/js/main.3dd41d08.js.map",
+    "453.a62953dd.chunk.js.map": "/recicle/static/js/453.a62953dd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.add98a6e.css",
+    "static/js/main.3dd41d08.js"
+  ]
+}
