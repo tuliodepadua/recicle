@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Recicle",
+  "name": "Recicle",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +19,7 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
+  "display": "any",
+  "theme_color": "#1f2937",
   "background_color": "#ffffff"
 }

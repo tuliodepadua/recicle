@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import {
   Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
+  Menu,
+  MenuItems,
+  MenuItem,
+  MenuButton,
 } from "@headlessui/react";
 
 const navigation = [
@@ -19,8 +21,8 @@ export default function Header() {
     <>
       <Disclosure as='nav' className='bg-gray-800'>
         <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-          <div className='flex h-16 items-center justify-between'>
-            <div className='flex items-center'>
+          <div className='flex h-16 items-center justify-between w-full'>
+            <div className='flex justify-between items-center w-full'>
               <div className='flex-shrink-0'>
                 <img
                   alt='Universidade Federal de pernambuco'
@@ -49,32 +51,38 @@ export default function Header() {
                   ))}
                 </div>
               </div>
+              <div className='md:hidden '>
+                <Menu>
+                  <MenuButton className='navbar-burger flex items-baseline text-white p-3'>
+                    <svg
+                      className='block h-4 w-4 fill-current'
+                      viewBox='0 0 20 20'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <title>Mobile menu</title>
+                      <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z'></path>
+                    </svg>
+                  </MenuButton>
+                  <MenuItems
+                    anchor='bottom'
+                    className='bg-slate-600 border-spacing-2'
+                  >
+                    {navigation.map((item) => (
+                      <MenuItem key={item.name}>
+                        <Link
+                          to={item.href}
+                          className='block data-[focus]:bg-blue-100 data-[focus]:text-slate-600 bg-slate-600 p-2 text-white text-sm'
+                        >
+                          {item.name}
+                        </Link>
+                      </MenuItem>
+                    ))}
+                  </MenuItems>
+                </Menu>
+              </div>
             </div>
           </div>
         </div>
-
-        <DisclosurePanel className='md:hidden'>
-          <div className='space-y-1 px-2 pb-3 pt-2 sm:px-3'>
-            {navigation.map((item) => (
-              <DisclosureButton
-                key={item.name}
-                as='a'
-                href={item.href}
-                aria-current={
-                  location.pathname === item.href ? "page" : undefined
-                }
-                className={classNames(
-                  location.pathname === item.href
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                  "block rounded-md px-3 py-2 text-base font-medium"
-                )}
-              >
-                {item.name}
-              </DisclosureButton>
-            ))}
-          </div>
-        </DisclosurePanel>
       </Disclosure>
     </>
   );
