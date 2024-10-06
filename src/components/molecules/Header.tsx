@@ -6,9 +6,9 @@ import {
 } from "@headlessui/react";
 
 const navigation = [
-  { name: "Calculadora", href: "/recicle" },
-  { name: "Dinâmica", href: "/recicle/dinamica" },
-  { name: "Sobre o projeto", href: "/recicle/sobre" },
+  { name: "Calculadora", href: "/" },
+  { name: "Dinâmica", href: "/dinamica" },
+  { name: "Sobre o projeto", href: "/sobre" },
 ];
 function classNames(...classes: (string | boolean | undefined)[]): string {
   return classes.filter(Boolean).join(" ");
