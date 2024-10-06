@@ -4,6 +4,7 @@ const barrilPetroleo = 13600;
 const barrilPrice = 426.33 
 const recyclingEfficiency = .9;
 const valueEnergy = 0.76447000;  
+
 const calcWeight = (qtd : number, weight: number) => qtd * weight;
 
 const calcAllItems = (quantities: { [key: string]: number }) => {
