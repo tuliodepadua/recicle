@@ -13,11 +13,12 @@ export default function Footer() {
                 />
               </div>
               <div className='hidden md:block'>
-                <div className='ml-10 flex items-baseline space-x-4 text-cyan-600'>
+                <div className='ml-10 flex items-baseline space-x-4 text-white'>
                   <p>
                     <a
                       href='https://wa.me/5581997123051?text=Contato%20através%20do%20projeto%20de%20física'
                       target='blank'
+                      className='font-bold'
                     >
                       Autor: Túlio de Pádua Vieira da Silva
                     </a>

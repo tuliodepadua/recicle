@@ -45,8 +45,15 @@ export default function Aplication() {
                   </li>
                   <li className='list-disc'>
                     Com estes dados em mãos, solicite que acessem pelo telefone
-                    ou pelo computador o endereço
-                    https://tuliodepadua.github.io/recicle/.
+                    ou pelo computador este{" "}
+                    <a
+                      href='https://tuliodepadua.github.io/recicle/'
+                      className='font-bold'
+                      target='blank'
+                    >
+                      link
+                    </a>
+                    .
                   </li>
                   <li className='list-disc'>Lancem os valores no site</li>
                   <li className='list-disc'>
@@ -58,8 +65,14 @@ export default function Aplication() {
                   </li>
                   <li className='list-disc'>
                     Caso seja possível, colabore com o repositório, trazendo
-                    sugestões ou contribuições.
-                    https://github.com/tuliodepadua/recicle/issues
+                    sugestões ou contribuições.{" "}
+                    <a
+                      href='https://github.com/tuliodepadua/recicle/issues'
+                      className='font-bold'
+                      target='blank'
+                    >
+                      Por este link
+                    </a>
                   </li>
                 </ol>
                 <h2 className='text-base font-bold  pt-1 pb-1'>

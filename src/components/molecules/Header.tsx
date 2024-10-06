@@ -7,7 +7,7 @@ import {
 
 const navigation = [
   { name: "Calculadora", href: "/recicle" },
-  { name: "Dinamica", href: "/recicle/dinamica" },
+  { name: "Dinâmica", href: "/recicle/dinamica" },
   { name: "Sobre o projeto", href: "/recicle/sobre" },
 ];
 function classNames(...classes: (string | boolean | undefined)[]): string {

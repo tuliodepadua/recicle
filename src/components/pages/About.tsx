@@ -17,7 +17,8 @@ export default function About() {
                   Como nasceu a ideia deste recurso?
                 </h1>
                 <p>
-                  A ideia nasceu de um desafio proposto pelo professor{" "}
+                  Esta prova de conceito nasceu de um desafio proposto pelo
+                  professor{" "}
                   <a
                     href='http://buscatextual.cnpq.br/buscatextual/visualizacv.do;jsessionid=625913AC1701CA8A77CA3DFDAD1CC065.buscatextual_0'
                     target='blank'
@@ -137,25 +138,48 @@ export default function About() {
                 <h1 className='text-lg font-bold pt-2 pb-2'>REFERÊNCIAS</h1>
                 <p className='pt-2 pb-2'>
                   WWF-Brasil. A reciclagem do plástico economiza até 80% de
-                  energia e cerca de 1 tonelada de petróleo. Disponível em:
-                  https://www.wwf.org.br/?14001/#:~:text=A%20reciclagem%20do%20pl%C3%A1stico%20economiza,de%201%20tonelada%20de%20petr%C3%B3leo.
+                  energia e cerca de 1 tonelada de petróleo. Disponível{" "}
+                  <a
+                    href='https://www.wwf.org.br/?14001/#:~:text=A%20reciclagem%20do%20pl%C3%A1stico%20economiza,de%201%20tonelada%20de%20petr%C3%B3leo.'
+                    className='font-bold'
+                    target='blank'
+                  >
+                    aqui
+                  </a>
                   Acesso em: 04 out. 2024.
                 </p>
                 <p className='pt-2 pb-2'>
                   MELHOR C MBIO. O valor do barril de petróleo hoje. Disponível
-                  em:
-                  https://www.melhorcambio.com/petroleo-hoje#:~:text=O%20valor%20do%20barril%20de,em%20R%24%20426%2C33.
-                  Acesso em: 04 out. 2024.
+                  <a
+                    href='https://www.melhorcambio.com/petroleo-hoje#:~:text=O%20valor%20do%20barril%20de,em%20R%24%20426%2C33'
+                    className='font-bold'
+                    target='blank'
+                  >
+                    aqui
+                  </a>
+                  . Acesso em: 04 out. 2024.
                 </p>
                 <p className='pt-2 pb-2'>
                   LABEEE – Laboratório de Eficiência Energética em Edificações.
-                  Consumo energético de chuveiros. Disponível em:
-                  https://labeee.ufsc.br/pt-br/node/480#:~:text=Observou%2Dse%20que%20o%20consumo,3%20kWh%2Fm%C3%AAs%20no%20inverno.
-                  Acesso em: 04 out. 2024.
+                  Consumo energético de chuveiros. Disponível{" "}
+                  <a
+                    href='https://labeee.ufsc.br/pt-br/node/480#:~:text=Observou%2Dse%20que%20o%20consumo,3%20kWh%2Fm%C3%AAs%20no%20inverno'
+                    className='font-bold'
+                    target='blank'
+                  >
+                    aqui
+                  </a>
+                  . Acesso em: 04 out. 2024.
                 </p>
                 <p className='pt-2 pb-2'>
-                  neoenergiapernambuco -
-                  https://servicos.neoenergiapernambuco.com.br/residencial-rural/Documents/01_NEOENERGIA%20PERNAMBUCO_TARIFAS%20DE%20ENERGIA%20EL%C3%89TRICA%20GRUPO%20B%20_MAIO_2023_REH_N%C2%BA%203.195.pdf
+                  neoenergiapernambuco - Disponível{" "}
+                  <a
+                    href='https://servicos.neoenergiapernambuco.com.br/residencial-rural/Documents/01_NEOENERGIA%20PERNAMBUCO_TARIFAS%20DE%20ENERGIA%20EL%C3%89TRICA%20GRUPO%20B%20_MAIO_2023_REH_N%C2%BA%203.195.pdf'
+                    className='font-bold'
+                    target='blank'
+                  >
+                    aqui
+                  </a>
                 </p>
               </div>
             </div>
