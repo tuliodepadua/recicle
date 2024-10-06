@@ -71,7 +71,7 @@ export default function Aplication() {
                       className='font-bold'
                       target='blank'
                     >
-                      Por este link
+                      link
                     </a>
                   </li>
                 </ol>

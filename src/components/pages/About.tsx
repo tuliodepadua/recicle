@@ -26,7 +26,7 @@ export default function About() {
                   >
                     {" "}
                     Abdias José da Silva Filho
-                  </a>{" "}
+                  </a>
                   , na disciplina{" "}
                   <span className='italic'>
                     disciplina PRÁTICAS INTEGRATIVAS NO ENSINO DE FÍSICA IV -
@@ -145,11 +145,11 @@ export default function About() {
                     target='blank'
                   >
                     aqui
-                  </a>
+                  </a>{" "}
                   Acesso em: 04 out. 2024.
                 </p>
                 <p className='pt-2 pb-2'>
-                  MELHOR C MBIO. O valor do barril de petróleo hoje. Disponível
+                  MELHOR C MBIO. O valor do barril de petróleo hoje. Disponível{" "}
                   <a
                     href='https://www.melhorcambio.com/petroleo-hoje#:~:text=O%20valor%20do%20barril%20de,em%20R%24%20426%2C33'
                     className='font-bold'
