@@ -29,8 +29,7 @@ export default function About() {
                   </a>
                   , na disciplina{" "}
                   <span className='italic'>
-                    disciplina PRÁTICAS INTEGRATIVAS NO ENSINO DE FÍSICA IV -
-                    EGE
+                    PRÁTICAS INTEGRATIVAS NO ENSINO DE FÍSICA IV - EGE
                   </span>
                   . Ele nos incentivou a criar um recurso que pudesse auxiliar
                   no ensino de conceitos relacionados à Física Ambiental.
