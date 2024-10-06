@@ -1,11 +1,9 @@
-import items, { itemType } from "./items";
-import materials, { MaterialType } from "./materials";
-//Quantidade de plastico equivalente a um barril de petroleo 
-const barrilPetroleo = 13600; // https://www.wwf.org.br/?14001/#:~:text=A%20reciclagem%20do%20pl%C3%A1stico%20economiza,de%201%20tonelada%20de%20petr%C3%B3leo.
-//preço do barril
-const barrilPrice = 426.33 // https://www.melhorcambio.com/petroleo-hoje#:~:text=O%20valor%20do%20barril%20de,em%20R%24%20426%2C33.
+import items from "./items";
+
+const barrilPetroleo = 13600; 
+const barrilPrice = 426.33 
 const recyclingEfficiency = .9;
-const valueEnergy = 0.76447000;
+const valueEnergy = 0.76447000;  
 const calcWeight = (qtd : number, weight: number) => qtd * weight;
 
 const calcAllItems = (quantities: { [key: string]: number }) => {
