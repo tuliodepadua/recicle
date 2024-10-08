@@ -15,14 +15,51 @@ export default function Home() {
 
   const quantityChange = (id: number, value: string) => {
     const numberValue = parseInt(value);
-    if (!isNaN(numberValue)) {
-      const newValue = numberValue >= 0 ? numberValue : 0;
+    if (!isNaN(numberValue) || value === "") {
+      const newValue = numberValue >= 0 ? numberValue : "";
       setQuantities((prevQuantities) => ({
         ...prevQuantities,
         [id]: newValue,
       }));
     }
   };
+
+  const ListItemsForm = () => {
+    return items.map((item) => (
+      <div className='flex flex-col sm:flex-row'>
+        <div className='flex-grow text-slate-700'>
+          <h2 className='font-bold'>{item.name}</h2>
+          <p className='text-xs italic text-gray-500'>
+            <b>Tempo para decomposição:</b>
+            {materials.map((material) => {
+              if (item.plastictype === material.id) {
+                return ` ${material.time}`;
+              }
+              return null;
+            })}
+          </p>
+        </div>
+        <div className='flex-grow-0'>
+          <Field>
+            <Field>
+              <Input
+                className={clsx(
+                  "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-sm/6 text-slate-700",
+                  "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-black/25"
+                )}
+                type='number'
+                value={
+                  quantities[item.id] !== undefined ? quantities[item.id] : ""
+                }
+                onChange={(e) => quantityChange(item.id, e.target.value)}
+              />
+            </Field>
+          </Field>
+        </div>
+      </div>
+    ));
+  };
+
   const { costSave, kwhSafe } = calcImpactOfRecycling(quantities);
 
   return (
@@ -42,39 +79,7 @@ export default function Home() {
               <div className='flex-grow-0 text-left'>Quantidade</div>
             </div>
             <hr className='mt-5 mb-5 border-cyan-500' />
-            {items.map((item) => (
-              <div className='flex flex-col sm:flex-row'>
-                <div className='flex-grow text-slate-700'>
-                  <h2 className='font-bold'>{item.name}</h2>
-                  <p className='text-xs italic text-gray-500'>
-                    <b>Tempo para decomposição:</b>
-                    {materials.map((material) => {
-                      if (item.plastictype === material.id) {
-                        return ` ${material.time}`;
-                      }
-                      return null;
-                    })}
-                  </p>
-                </div>
-                <div className='flex-grow-0'>
-                  <Field>
-                    <Field>
-                      <Input
-                        className={clsx(
-                          "mt-3 block w-full rounded-lg border-none bg-black/5 py-1.5 px-3 text-sm/6 text-slate-700",
-                          "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-black/25"
-                        )}
-                        type='number'
-                        value={quantities[item.id] || 0}
-                        onChange={(e) =>
-                          quantityChange(item.id, e.target.value)
-                        }
-                      />
-                    </Field>
-                  </Field>
-                </div>
-              </div>
-            ))}
+            {ListItemsForm()}
           </div>
           <div className='text-slate-700'>
             <div className='flex'>
