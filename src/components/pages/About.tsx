@@ -37,27 +37,29 @@ export default function About() {
                 <h1 className='text-lg font-bold pt-2 pb-2'>Objetivo</h1>
                 <ol className='pl-4'>
                   <li className='list-disc'>
-                    Construção de um instrumento para o cálculo do impacto da
+                    Construir um instrumento para o cálculo do impacto da
                     reciclagem de resíduos sólidos sobre o ambiente.
                   </li>
                   <li className='list-disc'>
-                    Desenvolvemos dinâmicas interativas em que os alunos podem
+                    Desenvolver dinâmicas interativas em que os alunos possam
                     interagir com o recurso e observar como suas ações
                     cotidianas impactam o meio ambiente.
                   </li>
                   <li className='list-disc'>
                     Disponibilizar o recurso online permite uma ampla divulgação
-                    sem barreiras geográficas. Além disso, utilizar a plataforma
-                    GitHub possibilita que o projeto evolua de maneira
-                    colaborativa, oferecendo a oportunidade para que outros
-                    contribuam e desenvolvam novos desdobramentos a partir da
-                    proposta inicial.
+                    sem barreiras geográficas.
                   </li>
                   <li className='list-disc'>
-                    A utilização de dinâmicas lúdicas, como uma “gincana”, é um
-                    exemplo de abordagem que facilita a construção dos conceitos
-                    de maneira leve e envolvente. No entanto, há diversas outras
-                    possibilidades que podem ser exploradas com a plataforma.
+                    Utilizar a plataforma GitHub para possibilitar que o projeto
+                    evolua de maneira colaborativa, oferecendo a oportunidade
+                    para que outros contribuam e desenvolvam novos
+                    desdobramentos a partir da proposta inicial.
+                  </li>
+                  <li className='list-disc'>
+                    Utilizar dinâmicas lúdicas, como uma 'gincana', é um exemplo
+                    de abordagem que facilita a construção dos conceitos de
+                    maneira leve e envolvente. No entanto, explorar diversas
+                    outras possibilidades com a plataforma é uma opção.
                   </li>
                 </ol>
                 <h1 className='text-lg font-bold pt-2 pb-2'>
